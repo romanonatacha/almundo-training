@@ -1,0 +1,6 @@
+FROM docker.almundo.com:5000/almundo/node:12-1.0.0
+COPY .npmrc package*.json yarn.* newrelic.js /opt/app/
+RUN npm install --prefix /opt/app --production
+COPY build/ /opt/app/build/
+COPY dist/ /opt/app/dist/
+COPY dist-production/ /opt/app/dist-production/

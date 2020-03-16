@@ -1,0 +1,6 @@
+{
+  "/api": {
+    "target": "http://local.almundo.com.ar:5000",
+    "secure": false
+  }
+}

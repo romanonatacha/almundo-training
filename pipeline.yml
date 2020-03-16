@@ -1,0 +1,12 @@
+nodeVersion: 10
+dockerImageBaseName: almundo/almundo-test
+serversName: almundo-test
+# slackChannels: # enable this setting to send notifications to slack channels
+#   - '#sw-channel'
+buildVariants:
+  web:
+    locales:
+      - es-AR
+      - es-CO
+      - es-MX
+      - pt-BR

@@ -1,0 +1,36 @@
+version: '3.7'
+services:
+  node_server:
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile.node
+    environment:
+      - NODE_ENV=development
+    ports:
+      - 5000:5000
+    volumes:
+      - static:/opt/app/dist/
+  reverse_proxy:
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile.nginx
+    links:
+      - node_server:nginx_backend
+    ports:
+      - 80:80
+    volumes:
+      - static:/opt/app/dist/
+  cache:
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile.varnish
+    links:
+      - reverse_proxy:varnish_backend
+    environment:
+      - VARNISH_PORT=8080
+    ports:
+      - 8080:8080
+    logging:
+      driver: none
+volumes:
+  static:

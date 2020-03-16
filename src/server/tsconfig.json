@@ -1,0 +1,9 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./build",
+    "target": "es2018",
+    "module": "commonjs"
+  },
+  "exclude": ["**/*.spec.ts"]
+}

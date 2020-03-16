@@ -1,0 +1,12 @@
+{
+  "name": "almundo-test-e2e",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "cypress run"
+  },
+  "dependencies": {
+    "cypress": "~3.4.1",
+    "typescript": "~3.5.3"
+  }
+}

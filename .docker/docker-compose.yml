@@ -1,0 +1,31 @@
+version: '3.7'
+services:
+  node_server:
+    image: docker.almundo.com:5000/almundo/almundo-test/node:${VERSION}
+    environment:
+      - NODE_ENV=${ENV}
+    ports:
+      - 5000:5000
+    volumes:
+      - static:/opt/app/dist/
+    restart: always
+  reverse_proxy:
+    image: docker.almundo.com:5000/almundo/almundo-test/nginx:${VERSION}
+    links:
+      - node_server:nginx_backend
+    ports:
+      - 80:80
+    volumes:
+      - static:/opt/app/dist/
+  cache:
+    image: docker.almundo.com:5000/almundo/almundo-test/varnish:${VERSION}
+    links:
+      - reverse_proxy:varnish_backend
+    environment:
+      - VARNISH_PORT=8080
+    ports:
+      - 8080:8080
+    logging:
+      driver: none
+volumes:
+  static:

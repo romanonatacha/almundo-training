@@ -1,0 +1,5 @@
+{
+  "roots": ["<rootDir>/src/client"],
+  "coverageDirectory": "coverage/client",
+  "testResultsProcessor": "jest-sonar-reporter"
+}

@@ -1,0 +1,11 @@
+{
+  "preset": "ts-jest",
+  "testEnvironment": "node",
+  "coverageDirectory": "../../coverage/server",
+  "testResultsProcessor": "jest-sonar-reporter",
+  "globals": {
+    "ts-jest": {
+      "tsConfig": "./src/server/tsconfig.spec.json"
+    }
+  }
+}
