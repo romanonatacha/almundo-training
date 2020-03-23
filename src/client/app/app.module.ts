@@ -13,11 +13,12 @@ import { AppErrorHandler } from './error-handler';
 import { AppComponent } from './app.component';
 import { UsersComponent } from './components/users/users.component';
 import { ListComponent } from './components/user/list/list.component';
+import { FilterComponent } from './components/user/filter/filter.component';
 
 const StoreDevTools = !environment.production ? StoreDevtoolsModule.instrument() : [];
 
 @NgModule({
-  declarations: [AppComponent, UsersComponent, ListComponent],
+  declarations: [AppComponent, UsersComponent, ListComponent, FilterComponent],
   imports: [
     BrowserModule,
     StoreModule.forRoot(reducers, { metaReducers }),
@@ -39,4 +40,4 @@ const StoreDevTools = !environment.production ? StoreDevtoolsModule.instrument()
   providers: [{ provide: ErrorHandler, useClass: AppErrorHandler }],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

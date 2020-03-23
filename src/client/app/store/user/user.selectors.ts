@@ -7,3 +7,10 @@ export const getUsers = createSelector(
   getUserState,
   state => state.users,
 );
+
+export const getFilteredUsers = createSelector(
+  getUserState,
+  state => state
+);
+
+

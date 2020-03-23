@@ -8,9 +8,9 @@ import { User } from '../../../server/api/user/user.service';
   providedIn: 'root',
 })
 export class UserService {
-  private url = '/test/api/users';
+  private url = '/api/users';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getUsers(): Observable<User[]> {
     return this.http

@@ -95,12 +95,7 @@
     "singleQuote": true,
     "trailingComma": "all"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -e"
-    }
-  },
+  "husky": {},
   "lint-staged": {
     "*.{js,ts,json,md}": [
       "prettier --write",

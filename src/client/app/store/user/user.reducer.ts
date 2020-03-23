@@ -6,12 +6,14 @@ export interface UserState {
   users: User[];
   loading: boolean;
   error: Error;
+  filter: string;
 }
 
-export const initialState = {
+export const initialState: UserState = {
   users: null,
   loading: false,
   error: null,
+  filter: ''
 };
 
 export function userReducer(state = initialState, action: UserAction): UserState {
@@ -36,11 +38,11 @@ export function userReducer(state = initialState, action: UserAction): UserState
         loading: false,
       };
 
-    // case UserTypes.LOAD_SEARCH_USER_SUCCESS:
-    //   return {
-    //     ...state,
-    //     users: action.payload,
-    //   };
+    case UserTypes.UPDATE_SEARCH_USER_SUCCESS:
+      return {
+        ...state,
+        filter: action.payload,
+      };
 
     // case UserTypes.LOAD_SEARCH_USER_ERROR:
     //   return {
