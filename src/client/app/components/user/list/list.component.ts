@@ -14,16 +14,12 @@ export class ListComponent implements OnChanges {
     if (!this.userState || !this.userState.filter) {
       return;
     }
-    console.log('filter: ' + this.userState.filter);
-    console.log('users: ' + this.users);
     const filterValue = this.userState.filter.toLowerCase();
     this.users = this.users.filter(
       (u: User) =>
         (u.name && u.name.toLowerCase().indexOf(filterValue) > -1) ||
         (u.email && u.email.toLowerCase().indexOf(filterValue) > -1)
     );
-    console.log('filter1: ' + this.userState.filter);
-    console.log('users1: ' + this.users);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
